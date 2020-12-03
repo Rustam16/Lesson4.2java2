@@ -4,15 +4,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        for (int i =1; i <5 ; i++) {
-            Runner runner = new Runner("Runner ", i);
+        Runner runner1 = new Runner("runner1");
+        Runner runner2= new Runner("runner2");
+        Runner runner3 = new Runner("runner3");
+        Runner runner4 = new Runner("runner4");
+        Runner runner5 = new Runner("runner5");
 
-            try {
-                runner.start();
-                runner.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        runner1.setRunner(runner5 , runner2);
+        runner2.setRunner(runner1, runner3);
+        runner3.setRunner(runner2,runner4);
+        runner4.setRunner(runner3,runner5);
+        runner5.setRunner(runner4,runner1);
+
+        runner1.start();
+
     }
 }
